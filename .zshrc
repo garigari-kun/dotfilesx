@@ -21,7 +21,8 @@ zplug load
 export PATH=~/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:$PATH
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-
+# export FZF_DEFAULT_COMMAND = ag --hidden --ignore .git -l -g ""
+export FZF_DEFAULT_COMMAND='ag -g""'
 function select-history() {
   BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
   CURSOR=$#BUFFER
