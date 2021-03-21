@@ -9,4 +9,5 @@ apt-get -y install tmux
 apt-get -y install vim-gtk
 apt-get -y install zsh
 apt-get -y install golang-go
+apt-get -y install silversearcher-ag
 
