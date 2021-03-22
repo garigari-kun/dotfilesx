@@ -30,3 +30,9 @@ function select-history() {
 }
 zle -N select-history
 bindkey '^r' select-history
+
+alias k='kubectl'
+alias kx='kubectx'
+alias be='bundle exec'
+
+eval "$(direnv hook zsh)"
