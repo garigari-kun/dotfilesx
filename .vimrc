@@ -1,5 +1,3 @@
-" vim-bootstrap 
-
 "*****************************************************************************
 "" Vim-PLug core
 "*****************************************************************************
@@ -43,7 +41,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'stephpy/vim-yaml'
 Plug 'andrewstuart/vim-kubernetes'
 Plug 'alvan/vim-closetag'
@@ -52,7 +49,8 @@ Plug 'tpope/vim-surround'
 Plug 'vickenty/vim-hive'
 Plug 'hashivim/vim-terraform'
 Plug 'rking/ag.vim'
-
+Plug 'rodjek/vim-puppet'
+Plug 'ekalinin/Dockerfile.vim'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -86,7 +84,6 @@ Plug 'dracula/vim'
 "" Go Lang Bundle
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
-
 " html
 "" HTML Bundle
 Plug 'hail2u/vim-css3-syntax'
@@ -94,22 +91,18 @@ Plug 'gorodinskiy/vim-coloresque'
 Plug 'tpope/vim-haml'
 Plug 'mattn/emmet-vim'
 
-
 " javascript
 "" Javascript Bundle
 Plug 'jelera/vim-javascript-syntax'
-
 
 " php
 "" PHP Bundle
 Plug 'arnaud-lb/vim-php-namespace'
 
-
 " python
 "" Python Bundle
 Plug 'davidhalter/jedi-vim'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
-
 
 " ruby
 Plug 'tpope/vim-rails'
@@ -117,7 +110,6 @@ Plug 'tpope/vim-rake'
 Plug 'tpope/vim-projectionist'
 Plug 'thoughtbot/vim-rspec'
 Plug 'ecomba/vim-ruby-refactoring'
-
 
 " typescript
 Plug 'leafgarland/typescript-vim'
@@ -444,9 +436,10 @@ if has('autocmd')
 endif
 
 "" Copy/Paste/Cut
-if has('unnamedplus')
-  set clipboard=unnamed,unnamedplus
-endif
+" if has('unnamedplus')
+"   set clipboard=unnamed,unnamedplus
+" endif
+set clipboard=unnamed,unnamedplus
 
 noremap YY "+y<CR>
 noremap <leader>p "+gP<CR>
@@ -660,50 +653,6 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
-"*****************************************************************************
-"" Convenience variables
-"*****************************************************************************
-
-" vim-airline
-" if !exists('g:airline_symbols')
-"   let g:airline_symbols = {}
-" endif
-
-" if !exists('g:airline_powerline_fonts')
-"   let g:airline#extensions#tabline#left_sep = ' '
-"   let g:airline#extensions#tabline#left_alt_sep = '|'
-"   let g:airline_left_sep          = '▶'
-"   let g:airline_left_alt_sep      = '»'
-"   let g:airline_right_sep         = '◀'
-"   let g:airline_right_alt_sep     = '«'
-"   let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
-"   let g:airline#extensions#readonly#symbol   = '⊘'
-"   let g:airline#extensions#linecolumn#prefix = '¶'
-"   let g:airline#extensions#paste#symbol      = 'ρ'
-"   let g:airline_symbols.linenr    = '␊'
-"   let g:airline_symbols.branch    = '⎇'
-"   let g:airline_symbols.paste     = 'ρ'
-"   let g:airline_symbols.paste     = 'Þ'
-"   let g:airline_symbols.paste     = '∥'
-"   let g:airline_symbols.whitespace = 'Ξ'
-" else
-"   let g:airline#extensions#tabline#left_sep = ''
-"   let g:airline#extensions#tabline#left_alt_sep = ''
-
-"   " powerline symbols
-"   let g:airline_left_sep = ''
-"   let g:airline_left_alt_sep = ''
-"   let g:airline_right_sep = ''
-"   let g:airline_right_alt_sep = ''
-"   let g:airline_symbols.branch = ''
-"   let g:airline_symbols.readonly = ''
-"   let g:airline_symbols.linenr = ''
-" endif
-
-" ctrlp settings
-" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
-
 " key settings
 inoremap <silent> jk <ESC>
 set clipboard=unnamed,autoselect
@@ -717,6 +666,5 @@ let g:closetag_filenames = '*.html,*.vue'
 
 " digdag
 autocmd BufNewFile,BufRead *.dig set filetype=yaml
-
 
 nnoremap <silent> <C-p> :FZF<CR>
