@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# sudo ./setup_ubuntu.sh
+# sudo ./setup.sh
 
 apt-get -y update
 apt-get -y install curl
