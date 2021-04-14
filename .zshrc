@@ -5,8 +5,8 @@ zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "chrissicool/zsh-256color"
-# zplug 'dracula/zsh', as:theme
-zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+zplug 'dracula/zsh', as:theme
+
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
   if read -q; then
@@ -36,3 +36,5 @@ alias kx='kubectx'
 alias be='bundle exec'
 
 eval "$(direnv hook zsh)"
+eval "$(rbenv init - zsh)"
+
